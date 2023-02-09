@@ -1,0 +1,42 @@
+<h2 class="font-black text-2xl">Listado Pacientes</h2>
+
+<p class="text-lg mt-5 mb-10">
+    Añade pacientes y <span class="text-indigo-600 font-bold ">Administralos</span>
+</p>
+
+<div *ngFor="let paciente of paciente" class="bg-white rounded-xl mt-5 px-5 py-10 shadow-md">
+<p class="font-bold mb-3 text-gray-700 uppercase">Nombre:
+
+    <span class="font-normal normal-case">{{paciente.nombre}}</span>
+</p>
+
+<p class="font-bold mb-3 text-gray-700 uppercase">Propietario:
+
+    <span class="font-normal normal-case">{{paciente.nombrePropietario}}</span>
+</p>
+
+<p class="font-bold mb-3 text-gray-700 uppercase">Email:
+
+    <span class="font-normal normal-case">{{paciente.email}}</span>
+</p>
+
+<p class="font-bold mb-3 text-gray-700 uppercase">Fecha Alta:
+
+    <span class="font-normal normal-case">{{paciente.FechaAlta}}</span>
+</p>
+
+<p class="font-bold mb-3 text-gray-700 uppercase">Sintomas:
+
+    <span class="font-normal normal-case">{{paciente.sintoma}}</span>
+</p>
+<div class="flex gap-6 mt-10">
+   <button type="button"
+            class="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg"
+   >Editar</button>
+   <button 
+   (click)="eliminar(paciente.id!)"
+   class="py-2 px-10 bg-red-600 hover:bg-red-700 text-white font-bold uppercase rounded-lg"
+   type="button">Eliminar</button>
+
+</div>
+</div>

@@ -1,0 +1,11 @@
+<h1 class="font-black text-4xl text-center md:w-1/2 mx-auto">Seguimiento Pacientes
+    <span class="text-indigo-600">Veterinaria</span></h1>
+<div class="mt-12 md:flex justify-around">
+<app-crear-paciente 
+(paciente)="agregarPaciente($event)"
+></app-crear-paciente>
+
+<app-listar-paciente 
+(borrado)="borrado($event)"
+[paciente]="listadoPacientes"></app-listar-paciente>
+</div>

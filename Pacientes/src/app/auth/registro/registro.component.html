@@ -1,0 +1,44 @@
+<main class="container mx-auto mt-5 md:mt-20 p-5 md:flex md:justify-center">
+    <div class="md:w-2/3 lg:w-2/5">
+    
+    <h1 class="text-sky-600 font-black text-6xl capitalize">
+        Crea tu cuenta y administra <span class="text-slate-700">
+            tus pacientes
+        </span>
+    </h1>
+    
+    <form [formGroup]="registerForm" method="post" class="my-10 bg-white shadow rounded-lg py-5 px-10">
+        <div class="my-5">
+            <label class="uppercase text-gray-600 block text-xl font-bold" for="Email">Email</label>
+            <input 
+                type="Email"
+                placeholder="Email"
+                class="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+                formControlName="email"
+            />
+        </div>
+    
+        <div class="my-5">
+            <label class="uppercase text-gray-600 block text-xl font-bold" for="Password">Password</label>
+            <input 
+                type="password"
+                placeholder="Contraseña"
+                class="w-full mt-3 p-3 border rounded-xl bg-gray-50"
+                formControlName="password"
+
+            />
+        </div>
+    
+        <p routerLink="/login" class="text-center text-sky-500 font-bold mb-5 cursor-pointer">
+        ¿Ya tienes una cuenta? ¡Inicia sesión aquí!
+        </p>
+    
+        <input type="submit"
+        value="Registrarse"
+        (click)="registro()"
+        class="bg-sky-700 w-full py-3 text-white uppercase font-bold rounded-xl hover:cursor-pointer hover:bg-sky-800" />
+    
+    </form>
+    </div>
+    </main>
+    

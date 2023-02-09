@@ -1,0 +1,80 @@
+<h2 class="font-black text-2xl text-center">Seguimiento Pacientos</h2>
+
+<p class="text-lg mt-5 text-center mb-10 text-indigo-600 font-bold">
+    Editar Pacientes
+</p>
+
+<form [formGroup]="editarPaciente" method="post" class="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
+
+    <div class="mb-7">
+
+        <label  for="nombre" class="text-gray-700 uppercase font-bold block">Nombre Mascota</label>
+
+        <input 
+            type="text"
+            id="nombre"
+            placeholder="Nombre de la mascota"
+            formControlName="nombre"
+            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        />
+    </div>
+
+    <div class="mb-7">
+
+        <label  for="nombrePropietario" class="text-gray-700 uppercase font-bold block">Nombre Propietario</label>
+
+        <input 
+            type="text"
+            id="nombrePropietario"
+            placeholder="Nombre Propietario"
+            formControlName="nombrePropietario"
+            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        />
+    </div>
+
+    <div class="mb-7">
+
+        <label  for="email" class="text-gray-700 uppercase font-bold block">Email</label>
+
+        <input 
+            type="email"
+            id="email"
+            placeholder="Email"
+            formControlName="email"
+            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        />
+    </div>
+
+    <div class="mb-7">
+
+        <label  for="Alta" class="text-gray-700 uppercase font-bold block">Alta</label>
+
+        <input 
+            type="date"
+            id="alta"
+            placeholder="Fecha de alta"
+            formControlName="FechaAlta"
+            class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        />
+    </div>
+
+    <div>
+
+        <label  for="Sintomas" class="text-gray-700 uppercase font-bold block">Sintomas</label>
+
+        <textarea
+        id="sintomas"
+        class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+        formControlName="sintoma"
+        >
+
+        </textarea>
+    </div>
+
+    <input 
+        type="submit"
+        value="Editar paciente"
+        class="w-full p-3 text-white hover:bg-indigo-800 transition-all uppercase font-bold bg-indigo-600"
+
+    />
+</form>
