@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material/material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './auth/registro/registro.component';
@@ -20,14 +22,16 @@ import { CrearPacienteComponent } from './pacientes/crear-paciente/crear-pacient
     LandingComponent,
     EditarPacientesComponent,
     ListarPacienteComponent,
-    CrearPacienteComponent
+    CrearPacienteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

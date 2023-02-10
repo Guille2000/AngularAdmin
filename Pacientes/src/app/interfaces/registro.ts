@@ -12,6 +12,6 @@ export interface Paciente{
     nombre:string;
     email:string
     nombrePropietario:string;
-    FechaAlta:Date,
+    fechaAlta:Date,
     sintoma:string;
 }

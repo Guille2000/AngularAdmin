@@ -22,7 +22,7 @@
 
 <p class="font-bold mb-3 text-gray-700 uppercase">Fecha Alta:
 
-    <span class="font-normal normal-case">{{paciente.FechaAlta}}</span>
+    <span class="font-normal normal-case">{{paciente.fechaAlta  | date}}</span>
 </p>
 
 <p class="font-bold mb-3 text-gray-700 uppercase">Sintomas:
@@ -31,6 +31,8 @@
 </p>
 <div class="flex gap-6 mt-10">
    <button type="button"
+            (click)="editar(paciente)"
+           
             class="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg"
    >Editar</button>
    <button 

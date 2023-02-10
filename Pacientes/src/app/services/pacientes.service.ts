@@ -22,5 +22,7 @@ export class PacientesService {
     return this.http.delete(`${this.url}/eliminar?Id=${id}`)
   }
 
-
+  editar(id: number, paciente:Paciente):Observable<Paciente>{
+    return this.http.put<Paciente>(`${this.url}/editar?Id=${id}`, paciente)
+  }
 }
