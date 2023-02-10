@@ -41,7 +41,7 @@ namespace Pacientes.Controllers
         [Route("pacientes/auth/login")]
         public async Task<ActionResult<RespuestaAutenticacion>> Login([FromBody] CredencialesUsuariosDTO credenciales)
         {
-            var resultado = await signInManager.PasswordSignInAsync(credenciales.Email, credenciales.Password, isPersistent: false, lockoutOnFailure: false);
+            var resultado = await signInManager.PasswordSignInAsync(credenciales.Email!, credenciales.Password!, isPersistent: false, lockoutOnFailure: false);
 
             if(resultado.Succeeded)
             {
@@ -56,10 +56,10 @@ namespace Pacientes.Controllers
         {
             var claims = new List<Claim>()
             {
-                new Claim("email", credenciales.Email)
+                new Claim("email", credenciales.Email!)
             };
-            var usuario = await userManager.FindByEmailAsync(credenciales.Email);
-            var claimsDB = await userManager.GetClaimsAsync(usuario);
+            var usuario = await userManager.FindByEmailAsync(credenciales.Email!);
+            var claimsDB = await userManager.GetClaimsAsync(usuario!);
 
             claims.AddRange(claimsDB);
 

@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Login, Registro } from '../interfaces/registro';
 import { map, Observable, tap } from 'rxjs';
 import { environment } from 'environments/environments';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
    url = environment.apiBase
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private localStorage:LocalStorageService) { }
 
 
   registro(email:string, password:string):Observable<Registro>{
@@ -25,7 +26,7 @@ export class AuthService {
     .pipe(
       tap(resp => {
         if(resp){
-          localStorage.setItem('token', resp.token)
+          this.localStorage.getToken(resp.token)
         }
       })
     )
