@@ -12,6 +12,9 @@
             class="w-full mt-3 p-3 border rounded-xl bg-gray-50"
             formControlName="email"
         />
+        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.controls['email'].hasError('required')">El email es requerido</span >
+        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.controls['email'].hasError('email')">El email no es valido</span>
+
     </div>
 
     <div class="my-5">
@@ -22,7 +25,11 @@
             class="w-full mt-3 p-3 border rounded-xl bg-gray-50"
             formControlName="password"
         />
-    </div>
+        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.controls['password'].hasError('required')">La contraseña es requerida</span >
+       <span class="text-center text-red-700 font-bold" *ngIf="loginForm.controls['password'].hasError('minlength')">Debe tener 6 caracteres</span >
+
+        </div>
+
 
     <p routerLink="/registro" class="text-center text-sky-500 font-bold mb-5 cursor-pointer">
     ¿No tienes cuenta? ¡Registrate aquí!

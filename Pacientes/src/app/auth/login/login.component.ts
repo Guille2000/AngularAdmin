@@ -9,20 +9,17 @@ import Swal from 'sweetalert2';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  loginForm!: FormGroup;
+  loginForm: FormGroup = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  })
 
   constructor(private auth:AuthService, 
     private formBuilder: FormBuilder,
     private router:Router){ }
 
-    ngOnInit(): void {
-      this.loginForm = this.formBuilder.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]]
-      })
-    }
 
     login(){
       const {email, password} = this.loginForm.value 

@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { AuthGuard } from './guard/auth.guard';
-import { EditarPacientesComponent } from './pacientes/editar-pacientes/editar-pacientes.component';
 import { LandingComponent } from './utilidades/landing/landing.component';
 
 const routes: Routes = [
@@ -15,10 +14,6 @@ const routes: Routes = [
   },
   {
     path:'registro', component:RegistroComponent
-  },
-  {
-    path:'paciente/:id',
-    component:EditarPacientesComponent
   },
   {
     path:'pacientes',

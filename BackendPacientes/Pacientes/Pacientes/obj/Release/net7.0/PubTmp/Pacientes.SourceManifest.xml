@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\guiac\Downloads\AngularAdmin-main\BackendPacientes\Pacientes\Pacientes\obj\Release\net7.0\PubTmp\Out\" />
+  <dbfullsql path="C:\Users\guiac\Downloads\AngularAdmin-main\BackendPacientes\Pacientes\Pacientes\obj\Release\net7.0\PubTmp\EFSQLScripts\Pacientes.ApplicationDBContext.sql" />
+</sitemanifest>

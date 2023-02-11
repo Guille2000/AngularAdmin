@@ -1,0 +1,302 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Pacientes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/pacientes/auth/crear": {
+      "post": {
+        "tags": [
+          "Cuentas"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CredencialesUsuariosDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RespuestaAutenticacion"
+            }
+          }
+        }
+      }
+    },
+    "/pacientes/auth/login": {
+      "post": {
+        "tags": [
+          "Cuentas"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CredencialesUsuariosDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RespuestaAutenticacion"
+            }
+          }
+        }
+      }
+    },
+    "/pacientes/pacientes": {
+      "get": {
+        "tags": [
+          "Sintomas"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SintomasDTO"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pacientes/id": {
+      "get": {
+        "tags": [
+          "Sintomas"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Id",
+            "type": "integer",
+            "format": "int32",
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SintomasDTO"
+            }
+          }
+        }
+      }
+    },
+    "/pacientes/agregar": {
+      "post": {
+        "tags": [
+          "Sintomas"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SintomasCreacionDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/pacientes/editar": {
+      "put": {
+        "tags": [
+          "Sintomas"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Id",
+            "type": "integer",
+            "format": "int32",
+            "collectionFormat": "multi"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SintomasCreacionDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/pacientes/eliminar": {
+      "delete": {
+        "tags": [
+          "Sintomas"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Id",
+            "type": "integer",
+            "format": "int32",
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CredencialesUsuariosDTO": {
+      "required": [
+        "email",
+        "password"
+      ],
+      "type": "object",
+      "properties": {
+        "email": {
+          "format": "email",
+          "minLength": 1,
+          "type": "string"
+        },
+        "password": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RespuestaAutenticacion": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "fechaExpiracion": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SintomasCreacionDTO": {
+      "required": [
+        "email",
+        "fechaAlta",
+        "nombre",
+        "nombrePropietario",
+        "sintoma"
+      ],
+      "type": "object",
+      "properties": {
+        "nombre": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "email": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "nombrePropietario": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "fechaAlta": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "sintoma": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SintomasDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "nombrePropietario": {
+          "type": "string"
+        },
+        "fechaAlta": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "sintoma": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -16,6 +16,8 @@
                 class="w-full mt-3 p-3 border rounded-xl bg-gray-50"
                 formControlName="email"
             />
+            <span class="text-center text-red-700 font-bold" *ngIf="registerForm.controls['email'].hasError('required')">El email es requerido</span >
+                <span class="text-center text-red-700 font-bold" *ngIf="registerForm.controls['email'].hasError('email')">El email no es valido</span>
         </div>
     
         <div class="my-5">
@@ -27,6 +29,8 @@
                 formControlName="password"
 
             />
+            <span class="text-center text-red-700 font-bold" *ngIf="registerForm.controls['password'].hasError('required')">La contraseña es requerida</span >
+            <span class="text-center text-red-700 font-bold" *ngIf="registerForm.controls['password'].hasError('minlength')">Debe tener 6 caracteres</span >
         </div>
     
         <p routerLink="/login" class="text-center text-sky-500 font-bold mb-5 cursor-pointer">

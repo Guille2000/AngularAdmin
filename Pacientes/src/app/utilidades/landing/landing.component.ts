@@ -26,6 +26,7 @@ export class LandingComponent implements OnInit {
     this.listadoPacientes.push(paciente);
     this.localStorage.guardarItem(this.listadoPacientes);
   }
+  
   editarPaciente(paciente: Paciente) {
     this.listadoPacientes = this.listadoPacientes.map((pacientes) =>
       pacientes.id == paciente.id ? paciente : pacientes

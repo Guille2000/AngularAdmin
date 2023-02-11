@@ -9,20 +9,16 @@ import Swal from 'sweetalert2';
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.scss']
 })
-export class RegistroComponent  implements OnInit {
-  registerForm!: FormGroup;
-
+export class RegistroComponent {
+  registerForm: FormGroup = this.formBuilder.group({
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]]
+})
 
   constructor(private auth:AuthService, 
     private formBuilder: FormBuilder,
     private router:Router
     ){}
-
-    ngOnInit(): void {
-      this.registerForm = this.formBuilder.group({
-        email: ['', [Validators.required]],
-        password: ['', [Validators.required]]})
-    }
 
 
     registro(){
