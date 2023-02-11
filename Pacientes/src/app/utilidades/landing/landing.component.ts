@@ -6,38 +6,42 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  
-  constructor(private localStorage:LocalStorageService, private http:PacientesService,
-    public dialog: MatDialog){
-    
-  }
-    listadoPacientes: Paciente[] = []
-    pacienteEditar!: Paciente   
+  constructor(
+    private localStorage: LocalStorageService,
+    public dialog: MatDialog
+  ) {}
+  listadoPacientes: Paciente[] = [];
+  pacienteEditar: Paciente | undefined;
 
-    ngOnInit(): void {
-      if(localStorage.getItem('paciente')){
-        this.listadoPacientes = JSON.parse(localStorage.getItem('paciente')!) 
-      }
+  ngOnInit(): void {
+    if (localStorage.getItem('paciente')) {
+      this.listadoPacientes = JSON.parse(localStorage.getItem('paciente')!);
     }
-
-  guardarPaciente(paciente:Paciente){
-    this.listadoPacientes.push(paciente)
-    this.localStorage.guardarItem(this.listadoPacientes)
-  }
-  editarPaciente(paciente:Paciente){
-    this.listadoPacientes = this.listadoPacientes.map(pacientes => pacientes.id == paciente.id ? paciente : pacientes)
   }
 
-  borrado(id:number){
-    this.listadoPacientes = this.listadoPacientes.filter(paciente => paciente.id !==id)
-    this.localStorage.guardarItem(this.listadoPacientes)
+  guardarPaciente(paciente: Paciente) {
+    this.listadoPacientes.push(paciente);
+    this.localStorage.guardarItem(this.listadoPacientes);
+  }
+  editarPaciente(paciente: Paciente) {
+    this.listadoPacientes = this.listadoPacientes.map((pacientes) =>
+      pacientes.id == paciente.id ? paciente : pacientes
+    );
+    this.localStorage.guardarItem(this.listadoPacientes);
   }
 
-  editado(paciente:Paciente){
-    this.pacienteEditar = paciente 
+  borrado(id: number) {
+    this.listadoPacientes = this.listadoPacientes.filter(
+      (paciente) => paciente.id !== id
+    );
+    this.localStorage.guardarItem(this.listadoPacientes);
+    this.pacienteEditar = undefined
   }
 
+  editado(paciente: Paciente) {
+    this.pacienteEditar = paciente;
+  }
 }
