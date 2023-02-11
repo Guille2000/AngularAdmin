@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class RegistroComponent {
   registerForm: FormGroup = this.formBuilder.group({
-    email: ['', [Validators.required]],
+    email: ['', [Validators.required,  Validators.email]],
     password: ['', [Validators.required]]
 })
 

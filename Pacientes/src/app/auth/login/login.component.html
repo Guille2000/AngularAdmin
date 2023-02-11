@@ -37,6 +37,7 @@
 
     <input 
     (click)="login()"
+    [disabled]="loginForm.invalid"
     type="submit"
     value="Iniciar sesión"
     class="bg-sky-700 w-full py-3 text-white uppercase font-bold rounded-xl hover:cursor-pointer hover:bg-sky-800" />

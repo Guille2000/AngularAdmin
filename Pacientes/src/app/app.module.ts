@@ -12,6 +12,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { LandingComponent } from './utilidades/landing/landing.component';
 import { ListarPacienteComponent } from './pacientes/listar-paciente/listar-paciente.component';
 import { CrearPacienteComponent } from './pacientes/crear-paciente/crear-paciente.component';
+import { ErrorPageComponent } from './utilidades/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CrearPacienteComponent } from './pacientes/crear-paciente/crear-pacient
     LandingComponent,
     ListarPacienteComponent,
     CrearPacienteComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

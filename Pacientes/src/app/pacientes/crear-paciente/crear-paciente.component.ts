@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Paciente } from 'src/app/interfaces/registro';
 import { PacientesService } from 'src/app/services/pacientes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-paciente',
@@ -29,7 +30,7 @@ export class CrearPacienteComponent implements OnChanges {
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
+   
     const {pacienteAEditar} = changes 
     if(pacienteAEditar.currentValue?.id){
       this.crearForm.patchValue(this.pacienteAEditar!)
@@ -48,7 +49,6 @@ export class CrearPacienteComponent implements OnChanges {
     //pacienteeditar => no tenia valor asignado 
 
     if (this.pacienteAEditar?.id) {
-      console.log(this.pacienteAEditar);
 
       this.http.editar(this.pacienteAEditar.id!, paciente).subscribe((data) => {
       
@@ -57,11 +57,23 @@ export class CrearPacienteComponent implements OnChanges {
         setTimeout(() => {
           this.editado = false;
         }, 2000);
+      }, (err) =>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Es necesario rellenar todos los campos',
+        })
       });
     } else {
       this.http.agregarPaciente(paciente).subscribe((data) => {
         this.paciente.emit(data);
         this.crearForm.reset();
+      }, (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Es necesario rellenar todos los campos',
+        })
       });
     }
   }

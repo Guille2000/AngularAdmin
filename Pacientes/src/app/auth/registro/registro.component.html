@@ -39,6 +39,7 @@
     
         <input type="submit"
         value="Registrarse"
+        [disabled]="registerForm.invalid"
         (click)="registro()"
         class="bg-sky-700 w-full py-3 text-white uppercase font-bold rounded-xl hover:cursor-pointer hover:bg-sky-800" />
     

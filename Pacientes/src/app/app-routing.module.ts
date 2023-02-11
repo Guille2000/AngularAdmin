@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { AuthGuard } from './guard/auth.guard';
+import { ErrorPageComponent } from './utilidades/error-page/error-page.component';
 import { LandingComponent } from './utilidades/landing/landing.component';
 
 const routes: Routes = [
@@ -19,6 +20,14 @@ const routes: Routes = [
     path:'pacientes',
     component:LandingComponent,
     canActivate:[AuthGuard]
+  },
+  {
+    path:'404',
+    component:ErrorPageComponent
+  },
+  {
+    path:'**',
+    redirectTo:'404'
   }
   
 ];
