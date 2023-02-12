@@ -45,9 +45,7 @@ export class CrearPacienteComponent implements OnChanges {
       email: this.crearForm.value.email,
       sintoma: this.crearForm.value.sintoma,
     };
-
-    //pacienteeditar => no tenia valor asignado 
-
+    
     if (this.pacienteAEditar?.id) {
 
       this.http.editar(this.pacienteAEditar.id!, paciente).subscribe((data) => {

@@ -2,7 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Paciente } from 'src/app/interfaces/registro';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { PacientesService } from 'src/app/services/pacientes.service';
-import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -10,9 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class LandingComponent implements OnInit {
   constructor(
-    private localStorage: LocalStorageService,
-    public dialog: MatDialog
-  ) {}
+    private localStorage: LocalStorageService
+    ) {}
   listadoPacientes: Paciente[] = [];
   pacienteEditar: Paciente | undefined;
 
