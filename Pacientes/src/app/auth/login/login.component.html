@@ -12,8 +12,8 @@
             class="w-full mt-3 p-3 border rounded-xl bg-gray-50"
             formControlName="email"
         />
-        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.controls['email'].hasError('required')">El email es requerido</span >
-        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.controls['email'].hasError('email')">El email no es valido</span>
+        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']">El email es requerido</span >
+        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['email']">El email no es valido</span>
 
     </div>
 
@@ -25,8 +25,8 @@
             class="w-full mt-3 p-3 border rounded-xl bg-gray-50"
             formControlName="password"
         />
-        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.controls['password'].hasError('required')">La contraseña es requerida</span >
-       <span class="text-center text-red-700 font-bold" *ngIf="loginForm.controls['password'].hasError('minlength')">Debe tener 6 caracteres</span >
+        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']">La contraseña es requerida</span >
+        <span class="text-center text-red-700 font-bold" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']">Debe tener 6 caracteres, una mayuscula y un simbolo especial.</span >
 
         </div>
 

@@ -1,4 +1,4 @@
-<h2 class="font-black text-2xl">Seguimiento Pacientos</h2>
+<h2 class="font-black text-2xl">Seguimiento Pacientes</h2>
 
 <p class="text-lg mt-5 mb-10">
     Añade pacientes y <span class="text-indigo-600 font-bold ">Administralos</span>
@@ -73,8 +73,9 @@
 
     <input 
     (click)="guardarPaciente()"
-        value="Guardar paciente"
-        class="w-full p-3 text-white hover:bg-indigo-800 transition-all uppercase font-bold bg-indigo-600"
+    type="submit"
+    value="Guardar paciente"
+    class="w-full p-3 text-white hover:bg-indigo-800 transition-all uppercase font-bold bg-indigo-600"
 
     />
     <div *ngIf="editado">
